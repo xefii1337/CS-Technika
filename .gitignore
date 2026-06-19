@@ -1,0 +1,5 @@
+node_modules/
+gotowe_na_hosting.zip
+.DS_Store
+venv/
+__pycache__/

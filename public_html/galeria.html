@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Galeria Maszyn Budowlanych - Wynajem CS Technika</title>
+  <meta name="description" content="Zobacz naszą galerię sprzętu budowlanego. Wynajem ładowarek teleskopowych, podnośników koszowych, nożycowych i przegubowych w Gdańsku i okolicach." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    .gallery-page {
+      padding: 120px 0 60px;
+      background-color: var(--light-bg);
+      min-height: 100vh;
+    }
+    .gallery-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .gallery-header h1 {
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      margin-bottom: 15px;
+    }
+    .gallery-section {
+      margin-bottom: 60px;
+    }
+    .gallery-section h2 {
+      font-size: 2rem;
+      color: var(--secondary-color);
+      margin-bottom: 25px;
+      border-bottom: 3px solid var(--accent-color);
+      display: inline-block;
+      padding-bottom: 10px;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 25px;
+    }
+    .gallery-item {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: #fff;
+    }
+    .gallery-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+    
+    /* Modal / Lightbox */
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.9);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .lightbox.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90vh;
+      border-radius: 8px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      color: #fff;
+      font-size: 40px;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+    .lightbox-close:hover {
+      color: var(--accent-color);
+    }
+  </style>
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">CS <span>Technika</span></a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html#about">O nas</a></li>
+          <li><a href="index.html#services">Usługi</a></li>
+          <li><a href="index.html#fleet">Flota</a></li>
+          <li><a href="galeria.html">Galeria</a></li>
+          <li><a href="index.html#contact">Kontakt</a></li>
+        </ul>
+      </nav>
+      <a href="index.html#contact" class="btn btn-primary nav-cta">Zapytaj o wynajem</a>
+    </div>
+  </header>
+
+  <main class="gallery-page">
+    <div class="container">
+      <div class="gallery-header">
+        <h1>Galeria Sprzętu Budowlanego</h1>
+        <p>Zobacz nasze maszyny w pełnej okazałości. Wynajem podnośników i ładowarek teleskopowych.</p>
+      </div>
+
+      <div class="gallery-section">
+        <h2>Merlo P40.17</h2>
+        <div class="gallery-grid">
+          <div class="gallery-item"><img src="images/wynajem-ladowarki-teleskopowej-merlo-p40-17-1.jpeg" alt="Wynajem ładowarki teleskopowej Merlo P40.17 Gdańsk" title="Ładowarka teleskopowa Merlo P40.17 na wynajem"></div>
+          <div class="gallery-item"><img src="images/wynajem-ladowarki-teleskopowej-merlo-p40-17-2.jpeg" alt="Merlo P40.17 ładowarka teleskopowa usługi wynajmu" title="Usługi ładowarką teleskopową Merlo P40.17"></div>
+          <div class="gallery-item"><img src="images/wynajem-ladowarki-teleskopowej-merlo-p40-17-3.jpeg" alt="Niezawodna ładowarka teleskopowa Merlo P40.17 wynajem" title="Merlo P40.17 - wynajem maszyn budowlanych"></div>
+          <div class="gallery-item"><img src="images/wynajem-ladowarki-teleskopowej-merlo-p40-17-4.jpeg" alt="Wynajem maszyn budowlanych Merlo P40.17 Trójmiasto" title="Ładowarka teleskopowa Merlo P40.17 CS Technika"></div>
+          <div class="gallery-item"><img src="images/wynajem-ladowarki-teleskopowej-merlo-p40-17-5.jpeg" alt="Maszyny budowlane CS Technika Merlo P40.17 wynajem" title="Ładowarka teleskopowa Merlo P40.17 w akcji"></div>
+        </div>
+      </div>
+
+      <div class="gallery-section">
+        <h2>JLG 4017 PS</h2>
+        <div class="gallery-grid">
+          <div class="gallery-item"><img src="images/wynajem-ladowarki-teleskopowej-jlg-4017-ps-1.jpeg" alt="Wynajem ładowarki teleskopowej JLG 4017 PS Gdańsk" title="Ładowarka teleskopowa JLG 4017 PS na wynajem"></div>
+          <div class="gallery-item"><img src="images/wynajem-ladowarki-teleskopowej-jlg-4017-ps-2.jpeg" alt="JLG 4017 PS ładowarka teleskopowa usługi budowlane" title="Usługi ładowarką teleskopową JLG 4017 PS"></div>
+          <div class="gallery-item"><img src="images/wynajem-ladowarki-teleskopowej-jlg-4017-ps-3.jpeg" alt="Maszyny budowlane do wynajęcia JLG 4017 PS" title="JLG 4017 PS - wynajem sprzętu budowlanego"></div>
+        </div>
+      </div>
+
+      <div class="gallery-section">
+        <h2>Genie Z-45/25</h2>
+        <div class="gallery-grid">
+          <div class="gallery-item"><img src="images/wynajem-podnosnika-przegubowego-genie-z-45-25-1.jpeg" alt="Wynajem podnośnika przegubowego Genie Z-45/25" title="Podnośnik koszowy Genie Z-45/25 na wynajem"></div>
+          <div class="gallery-item"><img src="images/wynajem-podnosnika-przegubowego-genie-z-45-25-2.jpeg" alt="Genie Z-45/25 podnośnik przegubowy usługi zwyżką" title="Usługi podnośnikiem przegubowym Genie Z-45/25"></div>
+          <div class="gallery-item"><img src="images/wynajem-podnosnika-przegubowego-genie-z-45-25-3.jpeg" alt="Podnośniki koszowe wynajem Genie Z-45/25 Gdańsk" title="Genie Z-45/25 - wynajem podnośników koszowych"></div>
+        </div>
+      </div>
+
+      <div class="gallery-section">
+        <h2>Manitou 160 ATJ</h2>
+        <div class="gallery-grid">
+          <div class="gallery-item"><img src="images/wynajem-podnosnika-przegubowego-manitou-160-atj-1.jpeg" alt="Wynajem podnośnika przegubowego Manitou 160 ATJ" title="Podnośnik koszowy Manitou 160 ATJ na wynajem"></div>
+          <div class="gallery-item"><img src="images/wynajem-podnosnika-przegubowego-manitou-160-atj-2.jpeg" alt="Manitou 160 ATJ podnośnik koszowy przegubowy usługi" title="Usługi podnośnikiem przegubowym Manitou 160 ATJ"></div>
+          <div class="gallery-item"><img src="images/wynajem-podnosnika-przegubowego-manitou-160-atj-3.jpeg" alt="Podnośniki koszowe wynajem Manitou 160 ATJ Gdańsk" title="Manitou 160 ATJ - wynajem podnośników koszowych"></div>
+        </div>
+      </div>
+
+      <div class="gallery-section">
+        <h2>Genie S-45</h2>
+        <div class="gallery-grid">
+          <div class="gallery-item"><img src="images/wynajem-podnosnika-teleskopowego-genie-s-45.jpeg" alt="Wynajem podnośnika teleskopowego Genie S-45 Gdańsk" title="Podnośnik koszowy teleskopowy Genie S-45 na wynajem"></div>
+        </div>
+      </div>
+
+      <div class="gallery-section">
+        <h2>Genie Z-51/30J</h2>
+        <div class="gallery-grid">
+          <div class="gallery-item"><img src="images/wynajem-podnosnika-przegubowego-genie-z-51-30j-1.jpeg" alt="Wynajem podnośnika przegubowego Genie Z-51/30J" title="Podnośnik koszowy Genie Z-51/30J na wynajem"></div>
+          <div class="gallery-item"><img src="images/wynajem-podnosnika-przegubowego-genie-z-51-30j-2.jpeg" alt="Genie Z-51/30J podnośnik przegubowy usługi zwyżką" title="Usługi podnośnikiem przegubowym Genie Z-51/30J"></div>
+          <div class="gallery-item"><img src="images/wynajem-podnosnika-przegubowego-genie-z-51-30j-3.jpeg" alt="Podnośniki koszowe wynajem Genie Z-51/30J Gdańsk" title="Genie Z-51/30J - wynajem podnośników koszowych"></div>
+          <div class="gallery-item"><img src="images/wynajem-podnosnika-przegubowego-genie-z-51-30j-4.jpeg" alt="Wynajem zwyżek Genie Z-51/30J CS Technika" title="Podnośnik przegubowy Genie Z-51/30J w pracy"></div>
+        </div>
+      </div>
+
+      <div class="gallery-section">
+        <h2>Genie GS-4390</h2>
+        <div class="gallery-grid">
+          <div class="gallery-item"><img src="images/wynajem-podnosnika-nozycowego-genie-gs-4390-1.jpeg" alt="Wynajem podnośnika nożycowego Genie GS-4390" title="Podnośnik nożycowy Genie GS-4390 na wynajem"></div>
+          <div class="gallery-item"><img src="images/wynajem-podnosnika-nozycowego-genie-gs-4390-2.jpeg" alt="Genie GS-4390 podnośnik nożycowy usługi zwyżką" title="Usługi podnośnikiem nożycowym Genie GS-4390"></div>
+          <div class="gallery-item"><img src="images/wynajem-podnosnika-nozycowego-genie-gs-4390-3.jpeg" alt="Podnośniki nożycowe wynajem Genie GS-4390 Gdańsk" title="Genie GS-4390 - wynajem podnośników nożycowych"></div>
+          <div class="gallery-item"><img src="images/wynajem-podnosnika-nozycowego-genie-gs-4390-4.jpeg" alt="Wynajem zwyżek nożycowych Genie GS-4390 CS Technika" title="Podnośnik nożycowy spalinowy Genie GS-4390"></div>
+          <div class="gallery-item"><img src="images/wynajem-podnosnika-nozycowego-genie-gs-4390-5.jpeg" alt="Zwyżka nożycowa Genie GS-4390 wynajem na budowę" title="Genie GS-4390 - podnośniki CS Technika"></div>
+        </div>
+      </div>
+
+      <div class="gallery-section">
+        <h2>Zdjęcia floty</h2>
+        <div class="gallery-grid">
+          <div class="gallery-item"><img src="images/flota-maszyn-budowlanych-podnosniki-ladowarki-1.jpeg" alt="Flota maszyn budowlanych CS Technika wynajem podnośników" title="Flota podnośników koszowych CS Technika"></div>
+          <div class="gallery-item"><img src="images/flota-maszyn-budowlanych-podnosniki-ladowarki-2.jpeg" alt="Wynajem sprzętu budowlanego flota maszyn Gdańsk" title="Sprzęt budowlany na wynajem CS Technika"></div>
+          <div class="gallery-item"><img src="images/flota-maszyn-budowlanych-podnosniki-ladowarki-3.jpeg" alt="Podnośniki koszowe i ładowarki teleskopowe na wynajem" title="Flota CS Technika - podnośniki i ładowarki"></div>
+          <div class="gallery-item"><img src="images/flota-maszyn-budowlanych-podnosniki-ladowarki-4.jpeg" alt="Maszyny budowlane do prac na wysokości CS Technika" title="Wynajem podnośników koszowych Trójmiasto"></div>
+          <div class="gallery-item"><img src="images/flota-maszyn-budowlanych-podnosniki-ladowarki-5.jpeg" alt="Zwyżki, podnośniki i ładowarki wynajem Trójmiasto" title="Maszyny budowlane CS Technika"></div>
+          <div class="gallery-item"><img src="images/flota-maszyn-budowlanych-podnosniki-ladowarki-6.jpeg" alt="Kompleksowy wynajem maszyn budowlanych flota" title="Szeroka oferta maszyn budowlanych na wynajem"></div>
+          <div class="gallery-item"><img src="images/flota-maszyn-budowlanych-podnosniki-ladowarki-7.jpeg" alt="Niezawodne maszyny budowlane do wynajęcia CS Technika" title="Flota sprzętu budowlanego gotowa do wynajmu"></div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-top-row">
+        <div class="footer-brand">
+          <div class="footer-logo">CS <span>Technika</span></div>
+          <p class="footer-desc">Twój zaufany partner w wynajmie maszyn budowlanych na terenie Tarnowa i okolic. Szybko, solidnie i bezpiecznie.</p>
+        </div>
+        <div class="footer-links-group">
+          <h4>Nawigacja</h4>
+          <a href="index.html#about">O nas</a>
+          <a href="index.html#services">Usługi</a>
+          <a href="index.html#fleet">Flota</a>
+          <a href="galeria.html">Galeria</a>
+          <a href="index.html#contact">Kontakt</a>
+        </div>
+        <div class="footer-links-group">
+          <h4>Maszyny</h4>
+          <a href="wynajem-ladowarek-teleskopowych-tarnow.html">Ładowarki teleskopowe</a>
+          <a href="wynajem-podnosnikow-koszowych-tarnow.html">Podnośniki koszowe (przegubowe)</a>
+          <a href="wynajem-podnosnikow-nozycowych-tarnow.html">Podnośniki nożycowe</a>
+        </div>
+        <div class="footer-links-group">
+          <h4>Lokalizacje</h4>
+          <a href="wynajem-maszyn-budowlanych-debica.html">Wynajem maszyn Dębica</a>
+          <a href="wynajem-maszyn-budowlanych-brzesko.html">Wynajem maszyn Brzesko</a>
+          <a href="wynajem-maszyn-budowlanych-bochnia.html">Wynajem maszyn Bochnia</a>
+          <a href="wynajem-maszyn-budowlanych-dabrowa-tarnowska.html">Wynajem maszyn Dąbrowa Tarnowska</a>
+        </div>
+      </div>
+      <div class="footer-bottom-row">
+        <p>&copy; 2026 CS Technika. Wszelkie prawa zastrzeżone.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close" id="lightbox-close">&times;</span>
+    <img src="" alt="Powiększone zdjęcie maszyny budowlanej na wynajem" id="lightbox-img">
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    const galleryItems = document.querySelectorAll('.gallery-item img');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxClose = document.getElementById('lightbox-close');
+
+    galleryItems.forEach(item => {
+      item.addEventListener('click', () => {
+        lightbox.classList.add('active');
+        lightboxImg.src = item.src;
+        // Kopiujemy również alt i title dla celów dostępności
+        lightboxImg.alt = item.alt;
+        lightboxImg.title = item.title;
+      });
+    });
+
+    lightboxClose.addEventListener('click', () => {
+      lightbox.classList.remove('active');
+    });
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target !== lightboxImg) {
+        lightbox.classList.remove('active');
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+        lightbox.classList.remove('active');
+      }
+    });
+  </script>
+</body>
+</html>
