@@ -33,67 +33,84 @@ document.querySelectorAll('.section-title, .about-text, .about-image, .service-c
   observer.observe(el);
 });
 
-// Obsługa karuzeli dla podnośników
-const track = document.getElementById('podnosniki-track');
-const prevBtn = document.querySelector('.prev-btn');
-const nextBtn = document.querySelector('.next-btn');
+// Obsługa karuzel
+const carousels = document.querySelectorAll('.carousel-container');
 
-if (track && prevBtn && nextBtn) {
-  const getScrollAmount = () => {
-    const card = track.querySelector('.fleet-grid-card');
-    if (card) {
-      const style = window.getComputedStyle(track);
-      const gap = parseInt(style.gap) || 0;
-      return card.offsetWidth + gap;
-    }
-    return 300;
-  };
+carousels.forEach(container => {
+  const track = container.querySelector('.carousel-track, .machine-grid');
+  const prevBtn = container.querySelector('.prev-btn');
+  const nextBtn = container.querySelector('.next-btn');
 
-  let isScrolling = false;
+  if (track && prevBtn && nextBtn) {
+    const getScrollAmount = () => {
+      const card = track.querySelector('.fleet-grid-card');
+      if (card) {
+        const style = window.getComputedStyle(track);
+        const gap = parseInt(style.gap) || 0;
+        return card.offsetWidth + gap;
+      }
+      return 300;
+    };
 
-  nextBtn.addEventListener('click', () => {
-    if (isScrolling) return;
-    isScrolling = true;
-    
-    const scrollAmount = getScrollAmount();
-    track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-    
-    // Po zakończeniu animacji przesuwamy pierwszy element na koniec
-    setTimeout(() => {
-      const firstItem = track.firstElementChild;
-      track.style.scrollBehavior = 'auto';
-      track.appendChild(firstItem);
-      track.scrollLeft -= scrollAmount;
+    let isScrolling = false;
+
+    nextBtn.addEventListener('click', () => {
+      if (isScrolling) return;
+      isScrolling = true;
       
-      void track.offsetWidth; // Wymuszenie reflow dla przeglądarki
-      track.style.scrollBehavior = 'smooth';
-      isScrolling = false;
-    }, 400);
-  });
+      const scrollAmount = getScrollAmount();
+      
+      // Jeżeli to natywny scroll (machine-grid), po prostu przewiń
+      if (track.classList.contains('machine-grid')) {
+        track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        setTimeout(() => { isScrolling = false; }, 400);
+        return;
+      }
 
-  prevBtn.addEventListener('click', () => {
-    if (isScrolling) return;
-    isScrolling = true;
-    
-    const scrollAmount = getScrollAmount();
-    const lastItem = track.lastElementChild;
-    
-    // Przesuwamy ostatni element na początek, dopasowując pasek ukrytym przeskokiem
-    track.style.scrollBehavior = 'auto';
-    track.prepend(lastItem);
-    track.scrollLeft += scrollAmount;
-    
-    void track.offsetWidth; // Wymuszenie reflow
-    track.style.scrollBehavior = 'smooth';
-    
-    // Płynna animacja do tyłu
-    track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-    
-    setTimeout(() => {
-      isScrolling = false;
-    }, 400);
-  });
-}
+      // Dla nieskończonej karuzeli (carousel-track)
+      track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      
+      setTimeout(() => {
+        const firstItem = track.firstElementChild;
+        track.style.scrollBehavior = 'auto';
+        track.appendChild(firstItem);
+        track.scrollLeft -= scrollAmount;
+        
+        void track.offsetWidth;
+        track.style.scrollBehavior = 'smooth';
+        isScrolling = false;
+      }, 400);
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (isScrolling) return;
+      isScrolling = true;
+      
+      const scrollAmount = getScrollAmount();
+
+      if (track.classList.contains('machine-grid')) {
+        track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        setTimeout(() => { isScrolling = false; }, 400);
+        return;
+      }
+      
+      const lastItem = track.lastElementChild;
+      
+      track.style.scrollBehavior = 'auto';
+      track.prepend(lastItem);
+      track.scrollLeft += scrollAmount;
+      
+      void track.offsetWidth;
+      track.style.scrollBehavior = 'smooth';
+      
+      track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+      
+      setTimeout(() => {
+        isScrolling = false;
+      }, 400);
+    });
+  }
+});
 
 // Wymuś przewinięcie strony na samą górę podczas przeładowania/odświeżania
 if (history.scrollRestoration) {
