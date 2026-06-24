@@ -1189,6 +1189,9 @@ footer {
   .section {
     padding: 4rem 0;
   }
+  .page-section {
+    padding-top: 150px !important; /* Clear tall mobile navbar */
+  }
   .contact-grid {
     padding: 2rem;
   }
