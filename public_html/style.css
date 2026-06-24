@@ -754,10 +754,34 @@ a {
 
 @media (max-width: 768px) {
   .carousel-btn {
-    display: none;
+    transform: translateY(-50%) scale(0.85);
+  }
+  .carousel-btn.prev-btn {
+    left: -10px;
+  }
+  .carousel-btn.next-btn {
+    right: -10px;
   }
   .carousel-track .fleet-grid-card {
     min-width: 280px;
+  }
+  .machine-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 1.5rem;
+    padding-bottom: 1.5rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Hide scrollbar for cleaner look */
+  }
+  .machine-grid::-webkit-scrollbar {
+    display: none;
+  }
+  .machine-grid > * {
+    min-width: 85vw;
+    scroll-snap-align: center;
+    flex-shrink: 0;
   }
 }
 
