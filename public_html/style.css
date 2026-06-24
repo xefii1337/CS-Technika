@@ -1089,8 +1089,11 @@ footer {
     grid-template-columns: 1fr;
   }
   .hero {
-    padding-top: 100px;
+    padding-top: 140px;
     text-align: center;
+  }
+  .page-section {
+    padding-top: 140px !important;
   }
   .hero-buttons {
     justify-content: center;
@@ -1167,6 +1170,8 @@ footer {
   .nav-links a {
     font-size: 1.25rem;
     color: var(--text-main);
+    display: block;
+    padding: 0.5rem 0;
   }
   .hero h1 {
     font-size: 2.25rem;
