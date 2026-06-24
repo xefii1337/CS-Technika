@@ -1206,9 +1206,9 @@ footer {
     right: 20px;
     width: 60px;
     height: 60px;
-    background: var(--primary);
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
     border-radius: 50%;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
     align-items: center;
     justify-content: center;
     z-index: 998;
@@ -1219,13 +1219,14 @@ footer {
   .mobile-fab svg {
     width: 28px;
     height: 28px;
-    fill: #ffffff;
-    stroke: #000000;
+    fill: none;
+    stroke: #ffffff;
+    stroke-width: 2.2;
   }
 }
 
 @keyframes pulse-fab {
-  0% { box-shadow: 0 0 0 0 rgba(30, 58, 138, 0.5); }
-  70% { box-shadow: 0 0 0 15px rgba(30, 58, 138, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(30, 58, 138, 0); }
+  0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.6); }
+  70% { box-shadow: 0 0 0 15px rgba(59, 130, 246, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
 }
