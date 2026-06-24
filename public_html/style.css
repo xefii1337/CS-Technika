@@ -1015,9 +1015,8 @@ footer {
   font-size: 1.1rem;
 }
 
-/* Responsive */
 @media (max-width: 992px) {
-  .hero-container, .about-grid, .contact-grid {
+  .hero-container, .contact-grid {
     grid-template-columns: 1fr;
   }
   .hero {
@@ -1036,16 +1035,30 @@ footer {
 }
 
 @media (max-width: 768px) {
-  .nav-links, .nav-cta {
+  .nav-links {
     display: none;
+  }
+  .nav-cta {
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
   }
   .hero h1 {
     font-size: 2.25rem;
+  }
+  .hero-buttons {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .hero-buttons .btn {
+    width: 100%;
   }
   .section {
     padding: 4rem 0;
   }
   .contact-grid {
     padding: 2rem;
+  }
+  .machine-specs {
+    grid-template-columns: 1fr;
   }
 }
