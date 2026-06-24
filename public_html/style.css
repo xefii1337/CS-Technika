@@ -357,10 +357,10 @@ a {
 
 /* About Grid */
 .about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: center;
+  display: block;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .about-text h2 {
@@ -371,14 +371,17 @@ a {
 .about-text p {
   color: var(--text-muted);
   margin-bottom: 1.5rem;
-  font-size: 1.05rem;
-  text-align: justify; /* Justified text for clean block look */
-  hyphens: auto; /* Prevent ugly gaps when justifying */
+  font-size: 1.1rem;
+  text-align: center;
+  hyphens: auto;
 }
 
 .features-list {
   list-style: none;
-  margin-top: 2rem;
+  margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .features-list li {
