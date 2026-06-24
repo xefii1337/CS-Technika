@@ -1106,33 +1106,19 @@ footer {
 @media (max-width: 768px) {
   .mobile-menu-btn {
     display: block !important;
-    margin-left: 0;
-    grid-area: hamburger;
-    justify-self: end;
-    align-self: center;
+    margin-left: auto;
   }
   .nav-container {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    grid-template-areas: 
-      "logo hamburger"
-      "cta cta";
-    gap: 1rem 0;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
     padding: 1rem 1.5rem;
   }
   .logo {
-    grid-area: logo;
-    justify-self: start;
-    align-self: center;
+    font-size: 1.4rem;
   }
   .nav-cta {
-    grid-area: cta;
-    justify-self: start;
-    width: auto;
-    margin-left: 0;
-    padding: 0.7rem 1.5rem;
-    font-size: 0.9rem;
+    display: none;
   }
   nav {
     position: fixed;
@@ -1211,4 +1197,34 @@ footer {
     flex: 1 1 100%;
     max-width: 100%;
   }
+
+  /* Floating Action Button */
+  .mobile-fab {
+    display: flex;
+    position: fixed;
+    bottom: 25px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background: var(--primary);
+    color: white;
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    align-items: center;
+    justify-content: center;
+    z-index: 998;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+    animation: pulse-fab 2s infinite;
+  }
+  .mobile-fab svg {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+@keyframes pulse-fab {
+  0% { box-shadow: 0 0 0 0 rgba(30, 58, 138, 0.5); }
+  70% { box-shadow: 0 0 0 15px rgba(30, 58, 138, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(30, 58, 138, 0); }
 }
