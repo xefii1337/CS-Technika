@@ -763,7 +763,17 @@ a {
     right: -10px;
   }
   .carousel-track .fleet-grid-card {
-    min-width: 280px;
+    min-width: 0;
+    flex: 0 0 85vw;
+    max-width: 85vw;
+  }
+  .carousel-track {
+    gap: 1rem;
+    padding-bottom: 1.5rem;
+    margin-left: -2rem;
+    margin-right: -2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
   .machine-grid {
     display: flex;
