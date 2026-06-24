@@ -38,7 +38,8 @@
 
 html {
   scroll-behavior: smooth;
-  font-size: 18px; /* Increased for readability */
+  scroll-padding-top: 90px;
+  font-size: 18px;
 }
 
 body {
