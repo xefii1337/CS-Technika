@@ -754,7 +754,15 @@ a {
 
 @media (max-width: 768px) {
   .carousel-btn {
-    display: none !important;
+    display: flex !important;
+    transform: translateY(-50%) scale(0.75);
+    background: rgba(255, 255, 255, 0.95);
+  }
+  .carousel-btn.prev-btn {
+    left: -15px;
+  }
+  .carousel-btn.next-btn {
+    right: -15px;
   }
   .carousel-track .fleet-grid-card {
     min-width: 0;
@@ -765,10 +773,11 @@ a {
   .carousel-track {
     gap: 1rem;
     padding-bottom: 1.5rem;
-    margin-left: -1.5rem;
-    margin-right: -1.5rem;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    margin-left: -2rem;
+    margin-right: -2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    scroll-padding-left: 2rem;
   }
   .machine-grid {
     display: flex;
@@ -777,10 +786,11 @@ a {
     scroll-snap-type: x mandatory;
     gap: 1rem;
     padding-bottom: 1.5rem;
-    margin-left: -1.5rem;
-    margin-right: -1.5rem;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    margin-left: -2rem;
+    margin-right: -2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    scroll-padding-left: 2rem;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
   }
