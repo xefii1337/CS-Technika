@@ -1221,31 +1221,35 @@ footer {
     max-width: 100%;
   }
 
-  /* Floating Action Button */
-  .mobile-fab {
-    display: flex;
-    position: fixed;
-    bottom: 25px;
-    right: 20px;
-    width: 60px;
-    height: 60px;
-    background: var(--gradient);
-    border-radius: 50%;
-    box-shadow: 0 4px 15px rgba(30, 58, 138, 0.4);
-    align-items: center;
-    justify-content: center;
-    z-index: 998;
-    text-decoration: none;
-    transition: transform 0.3s ease;
-    animation: pulse-fab 2s infinite;
-  }
-  .mobile-fab svg {
-    width: 28px;
-    height: 28px;
-    fill: none;
-    stroke: #ffffff;
-    stroke-width: 2.2;
-  }
+}
+
+/* Floating Action Button (Global - Mobile & Desktop) */
+.mobile-fab {
+  display: flex;
+  position: fixed;
+  bottom: 25px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background: var(--gradient);
+  border-radius: 50%;
+  box-shadow: 0 4px 15px rgba(30, 58, 138, 0.4);
+  align-items: center;
+  justify-content: center;
+  z-index: 998;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+  animation: pulse-fab 2s infinite;
+}
+.mobile-fab:hover {
+  transform: scale(1.05);
+}
+.mobile-fab svg {
+  width: 28px;
+  height: 28px;
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 2.2;
 }
 
 @keyframes pulse-fab {
