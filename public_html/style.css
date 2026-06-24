@@ -218,8 +218,24 @@ a {
 
 .hero h1 {
   font-size: clamp(2.5rem, 4vw, 4rem);
-  line-height: 1.1;
+  line-height: 1.15;
   margin-bottom: 1.5rem;
+  letter-spacing: -0.03em;
+}
+
+.text-gradient {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  font-weight: 800;
+}
+
+.h1-light {
+  font-weight: 300;
+  opacity: 0.8;
+  white-space: nowrap;
 }
 
 .hero p {
