@@ -1126,5 +1126,12 @@ footer {
   }
   .machine-specs {
     grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+  .machine-details {
+    padding: 1.5rem;
+  }
+  .machine-img-wrapper, .machine-details {
+    min-width: 100%;
   }
 }
