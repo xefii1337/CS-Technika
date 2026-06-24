@@ -770,22 +770,25 @@ a {
     flex-wrap: nowrap;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    gap: 1.5rem;
+    gap: 1rem;
     padding-bottom: 1.5rem;
     margin-left: -2rem;
     margin-right: -2rem;
     padding-left: 2rem;
     padding-right: 2rem;
     -webkit-overflow-scrolling: touch;
-    scrollbar-width: none; /* Hide scrollbar for cleaner look */
+    scrollbar-width: none;
   }
   .machine-grid::-webkit-scrollbar {
     display: none;
   }
   .machine-grid > * {
-    min-width: 80vw;
+    flex: 0 0 85vw;
+    max-width: 85vw;
     scroll-snap-align: center;
-    flex-shrink: 0;
+  }
+  .machine-content {
+    padding: 1.5rem;
   }
 }
 
