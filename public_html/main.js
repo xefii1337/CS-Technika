@@ -142,3 +142,29 @@ faqQuestions.forEach(question => {
     }
   });
 });
+
+// Mobile menu
+const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+const navMenu = document.querySelector('nav');
+
+if (mobileMenuBtn && navMenu) {
+  mobileMenuBtn.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+    
+    const svg = mobileMenuBtn.querySelector('svg');
+    if (navMenu.classList.contains('active')) {
+      svg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>';
+    } else {
+      svg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>';
+    }
+  });
+
+  const navLinksList = navMenu.querySelectorAll('a');
+  navLinksList.forEach(link => {
+    link.addEventListener('click', () => {
+      navMenu.classList.remove('active');
+      const svg = mobileMenuBtn.querySelector('svg');
+      if(svg) svg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>';
+    });
+  });
+}

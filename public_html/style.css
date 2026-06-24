@@ -1104,8 +1104,42 @@ footer {
 }
 
 @media (max-width: 768px) {
+  .mobile-menu-btn {
+    display: block !important;
+    margin-left: 10px;
+  }
+  .nav-container {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 280px;
+    height: 100vh;
+    background: var(--bg-card);
+    box-shadow: -5px 0 20px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    padding: 100px 2rem 2rem;
+    transition: right 0.3s ease-in-out;
+    z-index: 999;
+  }
+  nav.active {
+    right: 0;
+  }
   .nav-links {
-    display: none;
+    display: flex !important;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .nav-links li {
+    margin: 0;
+  }
+  .nav-links a {
+    font-size: 1.25rem;
+    color: var(--text-main);
   }
   .nav-cta {
     padding: 0.6rem 1rem;
