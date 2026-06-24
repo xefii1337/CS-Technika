@@ -1128,10 +1128,16 @@ footer {
     grid-template-columns: 1fr;
     padding: 1rem;
   }
+  .machine-card {
+    flex-direction: column;
+  }
   .machine-details {
     padding: 1.5rem;
   }
   .machine-img-wrapper, .machine-details {
-    min-width: 100%;
+    min-width: 0;
+    width: 100%;
+    flex: 1 1 100%;
+    max-width: 100%;
   }
 }
