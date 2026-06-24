@@ -1102,7 +1102,19 @@ footer {
     margin: 0 auto 2.5rem;
   }
   .hero-badge {
-    left: 20px;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    bottom: 10px;
+    padding: 0.5rem 1.2rem;
+    width: max-content;
+    gap: 0.75rem;
+  }
+  .hero-badge strong {
+    font-size: 1.5rem;
+  }
+  .hero-badge span {
+    font-size: 0.8rem;
   }
 }
 
