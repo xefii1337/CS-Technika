@@ -281,7 +281,8 @@ a {
 
 .hero-img {
   width: 100%;
-  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
   display: block;
 }
 
@@ -302,9 +303,11 @@ a {
 }
 
 .hero-badge strong {
+  font-family: 'Space Grotesk', sans-serif; /* Same font as titles */
   color: var(--accent);
   font-size: 2rem;
   line-height: 1;
+  display: block;
 }
 
 .hero-badge span {
@@ -313,6 +316,9 @@ a {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  line-height: 1;
+  display: block;
+  transform: translateY(2px); /* Push text down to optically balance the all-caps line box against the large numbers */
 }
 
 /* Trust Stats Strip */
@@ -446,8 +452,9 @@ a {
 
 /* Services */
 .services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 2.5rem;
 }
 
@@ -564,6 +571,8 @@ a {
 }
 
 .service-card {
+  flex: 1 1 320px;
+  max-width: 500px; /* Prevents card from stretching too wide on its own row */
   background: var(--bg-card);
   padding: 3rem;
   border-radius: var(--radius-lg);
@@ -1132,7 +1141,7 @@ footer {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .navbar {
     padding: 0.5rem 0;
   }

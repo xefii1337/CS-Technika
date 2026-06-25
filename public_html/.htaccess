@@ -1,0 +1,19 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^\.]+)$ $1.html [NC,L]
+
+# Basic Security Headers
+<IfModule mod_headers.c>
+    # Zabezpieczenie przed Clickjackingiem (osadzaniem strony w niewidocznych ramkach)
+    Header always set X-Frame-Options "SAMEORIGIN"
+    
+    # Blokada zgadywania typów MIME plików (MIME sniffing) przez przeglądarki
+    Header always set X-Content-Type-Options "nosniff"
+    
+    # Wymuszenie komunikacji przez bezpieczny protokół HTTPS (po zainstalowaniu certyfikatu SSL)
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+    
+    # Zablokowanie przecieków adresu URL przy przechodzeniu na zewnętrzne strony
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
